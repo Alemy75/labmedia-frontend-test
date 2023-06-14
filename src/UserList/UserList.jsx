@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Confirm from '../components/Confirm';
+import Confirm from '../components/Confirm/Confirm';
 import { userService } from '../services/users.servises';
 import s from './UserList.module.scss'
 import CrossIcon from '../assets/svg/CrossIcon';
