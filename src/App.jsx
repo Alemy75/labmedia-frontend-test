@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import UserList from './components/UserList';
-import Pagination from './components/Pagination';
-import Sort from './components/Sort';
+import UserList from './UserList/UserList';
+import Pagination from './components/Pagination/Pagination';
+import Search from './components/Search/Search';
+import Sort from './components/Sort/Sort';
 import { useDebounce } from './hooks/useDebounce';
-import Search from './components/Search';
 
 function App() {
     const [currentPage, setCurrentPage] = useState(1);
@@ -19,16 +19,21 @@ function App() {
     };
 
     return (
-        <>
-            <Search setDefault={setDefault} setSearchValue={setSearchValue} />
-            <Sort setCurrentSort={setCurrentSort} />
+        <div className="container">
+            <h1 className="title">Список пользователей</h1>
+            <Search
+                setDefault={setDefault}
+                setSearchValue={setSearchValue}
+                searchValue={searchValue}
+            />
+            <Sort setCurrentSort={setCurrentSort} currentSort={currentSort} />
             <UserList
                 sort={currentSort}
                 page={currentPage}
                 search={debounsedValue}
             />
-            <Pagination setCurrentPage={setCurrentPage} />
-        </>
+            <Pagination setCurrentPage={setCurrentPage} currentPage={currentPage} />
+        </div>
     );
 }
 

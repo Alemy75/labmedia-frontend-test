@@ -1,0 +1,23 @@
+.root {
+    & span {
+        margin-right: 8px;
+        font-size: 10px;
+        padding: 3px 0;
+    }
+    margin-bottom: 15px;
+}
+
+.label {
+    color: #9EAAB4;
+}
+
+.item {
+    cursor: pointer;
+    color: #9EAAB4;
+    border-bottom: 1.5px dashed #9EAAB4;
+}
+
+.active {
+    color: #333333;
+    border-bottom: 1.5px dashed #333333;
+}

@@ -1,0 +1,48 @@
+.root {
+    background-color: white;
+    
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    width: 100%;
+    margin-bottom: 72px;
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    background-color: #ECEFF0;
+    padding: 0 4px;
+    height: 34px;
+    width: 95%;
+    margin-bottom: 24px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    & input {
+        height: 100%;
+        width: 80%;
+        padding-left: 4px;
+        &::placeholder {
+            color: #9EAAB4;
+        }       
+    }
+}
+
+.wrap {
+    padding: 12px 16px;
+}
+
+.filter {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #4F4F4F;
+    & svg {
+        margin-right: 4px;
+    }
+}
