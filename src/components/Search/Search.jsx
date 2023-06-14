@@ -3,7 +3,13 @@ import SearchIcon from './../../assets/svg/SearchIcon';
 import FilterIcon from '../../assets/svg/FilterIcon';
 
 // eslint-disable-next-line react/prop-types
-const Search = ({ setDefault, setSearchValue, searchValue }) => {
+const Search = ({ setDefault, setSearchValue, searchValue, setCurrentPage }) => {
+
+    const onChangeHandler = (event) => {
+        setSearchValue(event.target.value)
+        setCurrentPage(1)
+    }
+
     return (
         <div className={s.root + ` shadow`}>
             <div className={s.wrap}>
@@ -12,7 +18,7 @@ const Search = ({ setDefault, setSearchValue, searchValue }) => {
                     <input
                         type="text"
                         value={searchValue}
-                        onChange={(event) => setSearchValue(event.target.value)}
+                        onChange={(event) => onChangeHandler(event)}
                         placeholder="Поиск по имени или email"
                     />
                 </div>

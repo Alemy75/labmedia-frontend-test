@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import UserList from './UserList/UserList';
+import UserList from './components/UserList/UserList';
 import Pagination from './components/Pagination/Pagination';
 import Search from './components/Search/Search';
 import Sort from './components/Sort/Sort';
@@ -25,6 +25,7 @@ function App() {
                 setDefault={setDefault}
                 setSearchValue={setSearchValue}
                 searchValue={searchValue}
+                setCurrentPage={setCurrentPage}
             />
             <Sort setCurrentSort={setCurrentSort} currentSort={currentSort} />
             <UserList
@@ -32,7 +33,10 @@ function App() {
                 page={currentPage}
                 search={debounsedValue}
             />
-            <Pagination setCurrentPage={setCurrentPage} currentPage={currentPage} />
+            <Pagination
+                setCurrentPage={setCurrentPage}
+                currentPage={currentPage}
+            />
         </div>
     );
 }
