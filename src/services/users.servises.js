@@ -3,13 +3,14 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://5ebbb8e5f2cfeb001697d05c.mockapi.io';
 
 export const userService = {
-    async getAll(page, limit, sortby, order) {
+    async getAll(page, limit, sortby, order, search) {
         const { data } = await axios.get(`/users`, {
             params: {
                 page,
                 limit,
                 sortby,
                 order,
+                search
             },
         });
         return data;

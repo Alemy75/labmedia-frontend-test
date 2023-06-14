@@ -1,27 +1,34 @@
-import { useEffect, useState } from 'react';
-import { userService } from './services/users.servises';
+import { useState } from 'react';
+import UserList from './components/UserList';
+import Pagination from './components/Pagination';
+import Sort from './components/Sort';
+import { useDebounce } from './hooks/useDebounce';
+import Search from './components/Search';
 
 function App() {
-    const [users, setUsers] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [currentSort, setCurrentSort] = useState('registration_date');
+    const [searchValue, setSearchValue] = useState('');
 
-    useEffect(() => {
-        async function fetchUsers() {
-            const data = await userService.getAll;
-            setUsers(data);
-        }
-        fetchUsers()
-    }, []);
+    const debounsedValue = useDebounce(searchValue, 500);
+
+    const setDefault = () => {
+        setCurrentPage(1);
+        setCurrentSort('registration_date');
+        setSearchValue('');
+    };
 
     return (
-        <ul>
-            <li>
-                {users.map(user => (
-                    <div key={user.id}>
-                        {user.username}
-                    </div>
-                ))}
-            </li>
-        </ul>
+        <>
+            <Search setDefault={setDefault} setSearchValue={setSearchValue} />
+            <Sort setCurrentSort={setCurrentSort} />
+            <UserList
+                sort={currentSort}
+                page={currentPage}
+                search={debounsedValue}
+            />
+            <Pagination setCurrentPage={setCurrentPage} />
+        </>
     );
 }
 

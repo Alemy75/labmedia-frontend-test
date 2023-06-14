@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react';
 import { userService } from '../services/users.servises';
 
 // eslint-disable-next-line react/prop-types
-const UserList = ({ sort, page }) => {
+const UserList = ({ sort, page, search }) => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        userService.getAll(page, 10, sort, 'desc').then((res) => {
+        userService.getAll(page, 10, sort, 'desc', search).then((res) => {
             setUsers(res);
         });
-    }, [sort, page]);
+    }, [sort, page, search]);
 
     return (
         <table className="iksweb">
